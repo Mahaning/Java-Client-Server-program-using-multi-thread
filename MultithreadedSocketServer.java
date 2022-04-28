@@ -18,7 +18,6 @@ class ServerClientThread extends Thread {
       while(!clientMessage.equals("exit")){
         clientMessage=inStream.readUTF();
         System.out.println("From Client-" +clientNo+ ": message is :"+clientMessage);
-        // squre = clientMessage;
         serverMessage="From Client to Server-" + clientNo + " mesage " + "sent succsfully";
         outStream.writeUTF(serverMessage);
         outStream.flush();
