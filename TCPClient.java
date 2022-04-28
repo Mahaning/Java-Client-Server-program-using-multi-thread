@@ -3,13 +3,13 @@ import java.io.*;
 public class TCPClient {
   public static void main(String[] args) throws Exception {
   try{
-    Socket socket=new Socket("localhost",8888);
+    Socket socket=new Socket("127.0.0.1",8888);
     DataInputStream inStream=new DataInputStream(socket.getInputStream());
     DataOutputStream outStream=new DataOutputStream(socket.getOutputStream());
     BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-    String clientMessage="exit",serverMessage="";
-    while(!clientMessage.equals(true)){
-      System.out.println("Enter message :");
+    String clientMessage="",serverMessage="";
+    while(!clientMessage.equals("bye")){
+      System.out.println("Enter Message :");
       clientMessage=br.readLine();
       outStream.writeUTF(clientMessage);
       outStream.flush();
@@ -23,4 +23,5 @@ public class TCPClient {
     System.out.println(e);
   }
   }
-} 
+}
+
